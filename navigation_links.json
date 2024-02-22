@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Securitizations",
+        "url": "https://dv01app.com/securitizations"
+    },
+    {
+        "title": "Portfolio Surveillance",
+        "url": "https://dv01app.com/portfolio-surveillance"
+    },
+    {
+        "title": "Warehouse",
+        "url": "https://dv01app.com/warehouse",
+        "disabled": true
+    },
+    {
+        "title": "Tape Cracker",
+        "url": "https://dv01app.com/tape-cracker"
+    },
+    {
+        "title": "Data Direct",
+        "url": "https://dv01app.com/data-direct"
+    },
+    {
+        "title": "Help Links",
+        "url": "https://dv01app.com/help-links"
+    }
+]

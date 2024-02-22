@@ -1,5 +1,6 @@
 import json
 import os
+import pandas as pd
 
 def create_assistant(client):
   assistant_file_path = 'assistant.json'
@@ -10,8 +11,18 @@ def create_assistant(client):
       assistant_id = assistant_data['assistant_id']
       print("Loaded existing assistant ID.")
   else:
-    file = client.files.create(file=open("knowledge.docx", "rb"),
+    file1 = client.files.create(file=open("assistant.json", "r"),
                                purpose='assistants')
+    
+    file2 = client.files.create(file=open("navigation_links.json", "r"),
+                                purpose='assistants')
+    
+    file3 =file = client.files.create(file=open("Reports Strat Table -GRADE .csv", "r"),
+                           purpose='assistants')
+    file4 =file = client.files.create(file=open("Reports Strat Table - GWAK .csv", "r"),
+                           purpose='assistants')
+    file5 =file = client.files.create(file=open("Reports Strat Table - FICO - ORIGINAL .csv", "r"),
+                           purpose='assistants')
 
     assistant = client.beta.assistants.create(instructions="""
           Dv01 Navigator And Visualizer is a chatbot tailored for early demonstration purposes within the dv01 web application environment. It adopts a formal and professional tone, appropriate for the business setting of dv01. This chatbot is designed to assist users in navigating the app and generating visualizations for reports based on the current web page. When users inquire about generating visualizations or any action related to a specific page, the chatbot will first clarify the context by asking, "Where are we again?" This prompt allows users to provide a link to the "current" page's report, enabling the chatbot to offer tailored assistance. Dv01 Navigator And Visualizer maintains a courteous and respectful communication style, requesting additional information in a clear, formal manner and prioritizing effective, efficient user interactions.
@@ -23,12 +34,13 @@ When a user inquires about navigating to a specific section within the dv01 app,
 3. Select "Portfolio Surveillance" from the menu. This will take you directly to the Portfolio Surveillance section where you can monitor and analyze your portfolio's performance.
 
 This structured approach prioritizes efficiency, allowing clients to quickly reach their desired section while also providing guidance for manual navigation within the app.
+Please provide all responses in HTML format, for example <p> and </br> tags.
           """,
                                               model="gpt-4-1106-preview",
                                               tools=[{
                                                   "type": "retrieval"
                                               }],
-                                              file_ids=[file.id])
+                                              file_ids=[file1.id, file2.id, file3.id, file4.id, file5.id])
 
     with open(assistant_file_path, 'w') as file:
       json.dump({'assistant_id': assistant.id}, file)
