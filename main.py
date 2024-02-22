@@ -7,7 +7,7 @@ from threading import Thread
 import openai
 from openai import OpenAI
 import functions
-# from flask_cors import CORS
+from flask_cors import CORS
 
 
 # Check OpenAI version is correct
@@ -22,7 +22,7 @@ else:
 
 # Start Flask app
 app = Flask(__name__)
-# CORS(app, origins='http://localhost:5173')
+CORS(app)
 
 # Init client
 client = OpenAI(
