@@ -11,7 +11,7 @@ def create_assistant(client):
       assistant_id = assistant_data['assistant_id']
       print("Loaded existing assistant ID.")
   else:
-    file1 = client.files.create(file=open("assistant.json", "r"),
+    file1 = client.files.create(file=open("Solutions.json", "r"),
                                purpose='assistants')
     
     file2 = client.files.create(file=open("navigation_links.json", "r"),
