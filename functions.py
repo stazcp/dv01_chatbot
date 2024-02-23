@@ -39,6 +39,8 @@ Please provide all responses in HTML format, for example <p> and </br> tags.
                                               model="gpt-4-1106-preview",
                                               tools=[{
                                                   "type": "code_interpreter",
+                                              },{
+                                                  "type": "retrieval"
                                               }],
                                               file_ids=[file1.id, file2.id, file3.id, file4.id, file5.id])
 
