@@ -11,17 +11,17 @@ def create_assistant(client):
       assistant_id = assistant_data['assistant_id']
       print("Loaded existing assistant ID.")
   else:
-    file1 = client.files.create(file=open("Solutions.json", "r"),
+    file1 = client.files.create(file=open("Solutions.json", "rb"),
                                purpose='assistants')
     
-    file2 = client.files.create(file=open("navigation_links.json", "r"),
+    file2 = client.files.create(file=open("navigation_links.json", "rb"),
                                 purpose='assistants')
     
-    file3 =file = client.files.create(file=open("Reports Strat Table -GRADE .csv", "r"),
+    file3 =file = client.files.create(file=open("Reports Strat Table -GRADE .csv", "rb"),
                            purpose='assistants')
-    file4 =file = client.files.create(file=open("Reports Strat Table - GWAK .csv", "r"),
+    file4 =file = client.files.create(file=open("Reports Strat Table - GWAK .csv", "rb"),
                            purpose='assistants')
-    file5 =file = client.files.create(file=open("Reports Strat Table - FICO - ORIGINAL .csv", "r"),
+    file5 =file = client.files.create(file=open("Reports Strat Table - FICO - ORIGINAL .csv", "rb"),
                            purpose='assistants')
 
     assistant = client.beta.assistants.create(instructions="""
